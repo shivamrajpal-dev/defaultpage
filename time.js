@@ -16,7 +16,7 @@ function calltime() {
 //    12 hour clock
     hour = hour % 12 || 12;
 //    output time
-    time.innerHTML = `${hour}<span>:</span>${addzero(min)}<span>:</span>${addzero(sec)}`;
+    time.innerHTML = `${hour}<span>:</span>${addzero(min)}<span>:</span>${addzero(sec)}${ampm}`;
     
     setTimeout(calltime, 1000);
     
@@ -38,20 +38,22 @@ function setback() {
     } else if (hour < 18){
         document.body.style.backgroundImage = "url('./afternoon2.jpg')";
         greeting.textContent = 'Good Afternoon,';
-        document.body.style.color = "rgba(0, 0, 0, 0.9)";
-        document.getElementById('name').style.color = 'rgba(255, 255, 255, 0.92)';
+        document.body.style.color = "rgb(0, 0, 0)";
+        document.getElementById('name').style.color = 'rgb(255, 255, 255)';
         
         
     } else {
         document.body.style.backgroundImage = "url('./evening.jpg')";
         greeting.textContent = 'Good Evening,';
-        DocumentFragmentument.body.style.color = "white";
+         document.body.style.color = "rgba(255, 255, 255, 0.9)";
+        document.getElementById('name').style.color = 'rgba(255, 249, 249, 0.92)';
+        
     }
 };
 // Get Focus
 function getFocus() {
   if (localStorage.getItem('focus') === null) {
-    focus.textContent = '[Enter Focus]';
+    focus.textContent = 'Enter Focus';
   } else {
     focus.textContent = localStorage.getItem('focus');
   }
